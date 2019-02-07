@@ -21,19 +21,41 @@ def getScore(line):
     else:
         return None
 
+
+def getRating(caption):
+    # initialise dict for ratings
+    rating = {'price': None,
+            'size': None,
+            'batter': None,
+            'core': None,
+            'freshness': None,
+            'overall': None
+            }
+
+    # captions are multiline, iterate over each line in caption
+    for l in caption.splitlines():
+
+        # poor mans switch statement, check for various rating categories
+        # include value in rating dict
+        if l.startswith("Price:") or l.startswith("Value:"):
+            rating['price'] = getScore(l)
+        elif l.startswith("Size:"):
+            rating['size'] = getScore(l)
+        elif l.startswith("Batter:"):
+            rating['batter'] = getScore(l)
+        elif l.startswith("Potato Core:") or l.startswith("Potato core:"):
+            rating['core'] = getScore(l)
+        elif l.startswith("Freshness"):
+            rating['freshness'] = getScore(l)
+        elif l.startswith("Overall"):
+            rating['overall'] = getScore(l)
+
+    return rating
+
 def main():
     # iterate over files in data directory
     for file in os.listdir(datadir):
         filename = os.fsdecode(file)
-
-        # empty dict for ratings
-        rating = {'price': None,
-                'size': None,
-                'batter': None,
-                'core': None,
-                'freshness': None,
-                'overall': None
-                }
         
         # todo: empty dict for location
 
@@ -47,29 +69,14 @@ def main():
                 if data['node']['location'] != None:
                     # todo: store location
                     
+
+
                     # assume all items have a caption
                     caption = data['node']['edge_media_to_caption']['edges'][0]['node']['text']
                     
                     # check caption contains an overall ranking (lazy)
                     if caption.find('Overall') >= 0:
-                        
-                        # captions are multiline, iterate over each line in caption
-                        for l in caption.splitlines():
-
-                            # poor mans switch statement, check for various rating categories
-                            # include value in rating dict
-                            if l.startswith("Price:") or l.startswith("Value:"):
-                                rating['price'] = getScore(l)
-                            elif l.startswith("Size:"):
-                                rating['size'] = getScore(l)
-                            elif l.startswith("Batter:"):
-                                rating['batter'] = getScore(l)
-                            elif l.startswith("Potato Core:") or l.startswith("Potato core:"):
-                                rating['core'] = getScore(l)
-                            elif l.startswith("Freshness"):
-                                rating['freshness'] = getScore(l)
-                            elif l.startswith("Overall"):
-                                rating['overall'] = getScore(l)
+                        rating = getRating(caption)
 
                     # todo: check if overall != None
                     # todo: combine rating and location data to single json object

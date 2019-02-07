@@ -21,7 +21,6 @@ def getScore(line):
     else:
         return None
 
-
 def getRating(caption):
     # initialise dict for ratings
     rating = {'price': None,
@@ -53,23 +52,27 @@ def getRating(caption):
     return rating
 
 def main():
+    # initialise list to store info before writing json
+    bigList = []
+
     # iterate over files in data directory
     for file in os.listdir(datadir):
         filename = os.fsdecode(file)
         
-        # todo: empty dict for location
-
         # check file is json
         # note: only checks files this millenium 
         if filename.startswith("2") and filename.endswith(".json"):
+            
             # open file and load json data from file
             with open(os.path.join(datadir, file)) as f:
                 data = json.load(f)
+                
                 # check json contrains a location
                 if data['node']['location'] != None:
-                    # todo: store location
                     
-
+                    # get location, initialise rating
+                    location = data['node']['location']
+                    rating = None
 
                     # assume all items have a caption
                     caption = data['node']['edge_media_to_caption']['edges'][0]['node']['text']
@@ -77,13 +80,17 @@ def main():
                     # check caption contains an overall ranking (lazy)
                     if caption.find('Overall') >= 0:
                         rating = getRating(caption)
+                
+                    # check there is a rating and ratings have overall value
+                    if rating != None and rating['overall'] != None:
+                        # append ratings to location dict
+                        location.update({'rating': rating })
+                        # add location to the list
+                        bigList.append(location)
 
-                    # todo: check if overall != None
-                    # todo: combine rating and location data to single json object
-
-                    # todo: push json object to mega json file
-
-    # todo: when done with all files, output mega json/geojson file, ready for tableau
+    # write contents of list to result file
+    with open('result.json', 'w') as fp:
+        json.dump(listymclistface, fp)
 
 if __name__ == "__main__":
     main()

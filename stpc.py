@@ -90,7 +90,7 @@ def main():
 
     # write contents of list to result file
     with open('result.json', 'w') as fp:
-        json.dump(listymclistface, fp)
+        json.dump(bigList, fp)
 
 if __name__ == "__main__":
     main()

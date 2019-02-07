@@ -6,15 +6,30 @@ import re
 
 datadir = os.fsencode("ratethatpc")
 
-def getScore(m):
-    score = m.group(0).split("/")
-    return score[0]
 
+def getScore(line):
+    m = re.search(r':?\s?[0-9][0-9]?\.?[0-9]*', line)
+    if m:
+        score = m.group(0)
+        score.strip()
+        score.strip(':')
+        return score
+    else:
+        return None
 
 def main():
     for file in os.listdir(datadir):
         filename = os.fsdecode(file)
+
         
+        rating = {'price': None,
+                'size': None,
+                'batter': None,
+                'core': None,
+                'freshness': None,
+                'overall': None
+                }
+
         # note: only checks files this millenium 
         if filename.startswith("2") and filename.endswith(".json"):
             with open(os.path.join(datadir, file)) as f:
@@ -26,12 +41,19 @@ def main():
                     if caption.find('Overall') >= 0:
                         for l in caption.splitlines():
                             if l.startswith("Price:") or l.startswith("Value:"):
-                                m = re.search(r'[0-9]+\.?[0-9]?/10', l)
-                                if m:
-                                    price = getScore(m)
-                                else:
-                                    price = "n/a"
-
+                                rating['price'] = getScore(l)
+                            elif l.startswith("Size:"):
+                                rating['size'] = getScore(l)
+                            elif l.startswith("Batter:"):
+                                rating['batter'] = getScore(l)
+                            elif l.startswith("Potato Core:") or l.startswith("Potato core:"):
+                                rating['core'] = getScore(l)
+                            elif l.startswith("Freshness"):
+                                rating['freshness'] = getScore(l)
+                            elif l.startswith("Overall"):
+                                #print(getScore(l))
+                                rating['overall'] = getScore(l)
+                        print(rating)
 
 if __name__ == "__main__":
     main()

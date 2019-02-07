@@ -11,10 +11,12 @@ def getScore(line):
     m = re.search(r':?\s?[0-9][0-9]?\.?[0-9]*', line)
     if m:
         score = m.group(0)
-        score.strip()
-        score.strip(':')
+        score = score.strip(' ')
+        score = score.strip(':')
         return score
     else:
+        print("issue with")
+        print(line)
         return None
 
 def main():
@@ -51,9 +53,7 @@ def main():
                             elif l.startswith("Freshness"):
                                 rating['freshness'] = getScore(l)
                             elif l.startswith("Overall"):
-                                #print(getScore(l))
                                 rating['overall'] = getScore(l)
-                        print(rating)
 
 if __name__ == "__main__":
     main()

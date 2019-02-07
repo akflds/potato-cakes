@@ -71,6 +71,7 @@ def main():
                             elif l.startswith("Overall"):
                                 rating['overall'] = getScore(l)
 
+                    # todo: check if overall != None
                     # todo: combine rating and location data to single json object
 
                     # todo: push json object to mega json file

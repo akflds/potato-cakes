@@ -13,7 +13,7 @@ To run you will need:
 ## Setup
 
 * download or clone the repository
-* in the same folder, use instaloader to grab JSON files from the [ratethatpc](https://instagram.com/ratethatpc) account using this command `instaloader --no-pictures --no-compress-json --no-captions --geotags ratethatpc`
+* in the same folder, use instaloader to grab JSON files from the [ratethatpc](https://instagram.com/ratethatpc) account using this command `instaloader --login=[username] --no-pictures --no-compress-json --no-captions --geotags ratethatpc`
 * this creates `ratethatpc/` with the appropriate files
 * run `python3 stpc.py`
 * this will produce `result.json` which I went on to upload into Tableau for the visualisation (see below)

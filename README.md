@@ -1,7 +1,7 @@
 # stpc
 See that PC! Visualising the greatest potato cakes in Australia.
 
-This is my project for the inaugural [RMIT Online](https://online.rmit.edu.au/) hackathon. It combines a love of battered potato discs, rusty Python skills, a belief in visualising data and maps.
+This is my project for the inaugural [RMIT Online](https://online.rmit.edu.au/) hackathon. It combines a love of battered potato discs and some rusty Python skills.
 
 ## Dependencies
 

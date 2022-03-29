@@ -39,7 +39,7 @@ Rather than jump through hoops to get access to the [developer API](https://www.
 
 ## Putting it all together
 
-Pulling values out of each file required a few lines of Python. Crafting regular expressions to find ratings for each category took a little longer. The end result was bundled back up into a nice, clean JSON file with the ratings, latitude, longitude and name of the vendor. 
+Pulling the right fields out of each file required a few lines of Python. Crafting a regular expression to find ratings for each category took a little longer. The end result was bundled back up into a nice, clean JSON file with the ratings, latitude, longitude and name of the vendor. 
 
 Originally I was going to throw this onto Mapbox, but it ended up being quicker to drop the data into our Tableau environment. With a bit of help from our knowledge team, we got it up and running pretty quickly:
 
@@ -47,8 +47,17 @@ Originally I was going to throw this onto Mapbox, but it ended up being quicker 
 
 ## Wrapping up
 
-It was pretty fun to spend a couple of days wrangling regexps and experimenting with different options in Tableau. My final presentation got a lot of laughs and (I think) a few people got the idea behind it. We went on to test the accuracy of the ratings, sampling a bag of potato cakes from the closest vendor, Richmond railway station. The group taste-test validated their ranking, a deserved 5th from bottom!
+It was pretty fun to spend a couple of days wrangling Python and experimenting with different options in Tableau. My final presentation got a lot of laughs and (I think) a few people got the idea behind it. We went on to test the accuracy of the ratings, sampling a bag of potato cakes from the closest vendor, Richmond railway station. The group taste-test validated their ranking, a deserved 5th from bottom!
 
 At some point I'd like to revisit this to fix a few bugs, automate updating the data source and publish the map. I might even branch out to other types of [fried potato](https://www.instagram.com/mips_chips/). 
+
+## Running the code
+
+If you want to try this out yourself, you'll need to have both Python 3 and [Instaloader](https://instaloader.github.io/) installed. The instructions below worked in 2019, I expect Instagram/Instaloader will have changed by now:
+
+1. Clone this repo and `cd` into it
+2. Scrape the RTPC account `instaloader --login=YOUR_USERNAME --no-pictures --no-compress-json --no-captions --geotags ratethatpc`
+3. Wrangling the output: `python3 stpc.py`
+4. Load the resulting file (`result.json`) file into your data visualisation platform of choice!
 
 [^1]: Australia is big but it's towns are small. It shouldn't be too hard to find the right spot in the wild so I just used either type of location interchangeably.

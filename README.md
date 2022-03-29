@@ -4,15 +4,15 @@ In January 2019 [RMIT Online](https://online.rmit.edu.au) held their first staff
 
 ## Potato cakes?!
 
-You're probably thinking "Why potato cakes?". It's mostly because they're tasty and aren't subject to any data protection regulation (AFAIK). The theme for the hackathon was 'the future of learning'. I approached the theme _somewhat_ broadly, using the time to try my hand at some data wrangling and visualisation. I hoped to get people thinking about the types of data we had available and how they could be used to improve the business, but also have a little fun at the same time.
+You're probably thinking "Why potato cakes?". It's mostly because they're tasty and aren't subject to any data protection regulation (AFAIK). The theme for the hackathon was "the future of learning". I approached the theme _somewhat_ broadly, using the time to try my hand at some data wrangling and visualisation. I hoped to get people thinking about the types of data we had available and how they could be used to improve the business, but also have a little fun at the same time.
 
-So, where do you get the best potato cakes? Thankfully, Australia's premier potato cake rater [@ratethatpc](https://www.instagram.com/ratethatpc/) (RTPC) has done plenty of field research. They've diligently rated potato cakes on various properties including freshness, batter and value, as well as providing an overall rating. Most of their posts are tagged with a location or, if the potato cakery(?) doesn't have a public profile, the approximate location[^1]. In an ideal world it would be nice to have more data and multiple independent reviews, but for now I'll trust they know what they're doing and their ratings are free from bias.
+So, where do you get the best potato cakes? Thankfully, Australia's premier potato cake rater [@ratethatpc](https://www.instagram.com/ratethatpc/) has done plenty of field research. They've diligently rated potato cakes on various properties including freshness, batter and value, as well as providing an overall rating. Most of their posts are tagged with a location or, if the potato cakery(?) doesn't have a public profile, the approximate location[^1]. In an ideal world it would be nice to have more data and multiple independent reviews, but for now I'll trust they know what they're doing and their ratings are free from bias.
 
 ## Getting the data
 
 If you've been on the 'gram for a while, you might remember having a [photo map](https://mashable.com/2016/09/06/instagram-kills-photo-maps/). In lieu of inventing a time machine, the easiest option was to scrape all the data and recreate a map.
 
-Rather than jump through hoops to get access to the [developer API](https://www.instagram.com/developer/) I chose to use use [Instaloader](https://instaloader.github.io/) to do some of the heavy lifting. After playing with some of the tags, I was able to scrape a handful of JSON files, with  both the location and caption (with ratings) e.g.:
+Rather than jump through hoops to get access to the [developer API](https://www.instagram.com/developer/) I chose to use use [Instaloader](https://instaloader.github.io/) to do some of the heavy lifting. After playing with some of the tags, I was able to download a handful of JSON files containing both the location and caption, with the ratings, e.g.:
 
 ```
 "location": {

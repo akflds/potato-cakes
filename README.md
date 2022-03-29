@@ -41,13 +41,13 @@ Rather than jump through hoops to get access to the [developer API](https://www.
 
 Pulling the right fields out of each file required a few lines of Python. Crafting a regular expression to find ratings for each category took a little longer. The end result was bundled back up into a nice, clean JSON file with the ratings, latitude, longitude and name of the vendor. 
 
-Originally I was going to throw this onto Mapbox, but it ended up being quicker to drop the data into our Tableau environment. With a bit of help from our knowledge team, we got it up and running pretty quickly:
+Originally I was going to throw this onto Mapbox, but it ended up being quicker to drop the data into our Tableau environment. With a bit of help from our knowledge team, it was up and running pretty quickly:
 
 ![Location of potato cake vendors plotted on a map of Australia](stpc.png)
 
 ## Wrapping up
 
-It was pretty fun to spend a couple of days wrangling Python and experimenting with different options in Tableau. My final presentation got a lot of laughs and (I think) a few people got the idea behind it. We went on to test the accuracy of the ratings, sampling a bag of potato cakes from the closest vendor, Richmond railway station. The group taste-test validated their ranking, a deserved 5th from bottom!
+It was fun to spend a couple of days wrangling Python and experimenting with different options in Tableau. My final presentation got a lot of laughs and (I think) a few people got the idea behind it. A potato cake emoji was added to the company Slack channel and a few days later we went on to test the accuracy of the ratings. A group taste-test from the closest vendor (Richmond railway station) validated their ranking, a deserved 5th from bottom! 
 
 At some point I'd like to revisit this to fix a few bugs, automate updating the data source and publish the map. I might even branch out to other types of [fried potato](https://www.instagram.com/mips_chips/). 
 

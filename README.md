@@ -62,4 +62,4 @@ If you want to try this out yourself, you'll need to have both Python 3 and [Ins
 3. Wrangling the output: `python3 stpc.py`
 4. Load the resulting file (`result.json`) file into your data visualisation platform of choice!
 
-[^1]: Australia is big but it's towns are small. It shouldn't be too hard to find the right spot in the wild so I just used either type of location interchangeably.
+[^1]: Australia is really quite big but most of the towns are pretty small. It shouldn't be too hard to find the right spot in the wild so I just used either type of location interchangeably.

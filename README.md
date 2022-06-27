@@ -4,7 +4,7 @@ In January 2019 [RMIT Online](https://online.rmit.edu.au) held their first staff
 
 ## Potato cakes?!
 
-If you're thinking "why potato cakes?", it's mostly because they're tasty and aren't subject to any data protection regulation (AFAIK). 
+If you're thinking "why potato cakes?", it's mostly because they're tasty and it's a lot more responsible than working on live learner data for this sort of project. 
 
 The theme for the hackathon was "the future of learning". I approached the theme _somewhat_ broadly, using the time to try my hand at some data wrangling and visualisation. I was learning something that might be helpful in _my_ future. I also hoped it would get people thinking about the types of data we had available and what they could learn to improve things across the business. 
 

@@ -1,6 +1,6 @@
 # See that PC
 
-In January 2019 [RMIT Online](https://online.rmit.edu.au) held their first staff hackathon. I decided to spend the day searching for the best [potato cakes](https://en.wikipedia.org/wiki/Potato_cake#In_Australia,_England,_and_Scotland) in Australia!
+In January 2019 [RMIT Online](https://online.rmit.edu.au) held their first staff hackathon. I decided to spend the day searching for the best [potato cakes](https://en.wikipedia.org/wiki/Potato_cake#In_Australia,_England,_and_Scotland) in Australia! This is a brief write up of the project.
 
 ## Potato cakes?!
 
